@@ -31,6 +31,7 @@ namespace ProductApps
         {
             int totalCharge = 0;
             int totalPayment = 0;
+            int totalWrap = 0;
             try
             {
                 cProduct = new Product(Convert.ToDecimal(priceTextBox.Text), Convert.ToInt16(quantityTextBox.Text));
@@ -40,6 +41,8 @@ namespace ProductApps
                 totalPayment = int.Parse(totalPaymentTextBlock.Text);
                 totalCharge = totalPayment + 25;
                 totalChargeTextBlock.Text = totalCharge.ToString("C");
+                totalWrap = totalPayment + totalCharge + 5;
+                wrapChargeTextBlock.Text = totalWrap.ToString("C");
                 
             }
             catch (FormatException)
